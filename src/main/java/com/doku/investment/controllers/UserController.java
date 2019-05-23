@@ -15,16 +15,17 @@ import com.doku.investment.repositories.UserRepository;
 
 /**
  * @author Laurence
- * @see Controller
+ * @see Controller, GetMapping, PostMapping
  * <p>
- * Run Main Investment Application
+ * Controller For Handle User Request
  * <p>
- * Anotation SpringBootApplication is for enable auto-configuration three features anotation 
- * EnableAutoConfiguration, ComponentScan, Configuration.
+ * Anotation Controller is for create a Map of model object and find a view
  * <p>
- * Configure manually : Component, Entities, and Repositories Package will be used, this is forsecure project.
+ * Anotation GetMapping is the newer annotation
+ * for RequestMapping(method = RequestMethod.GET), used to map web requests onto specific handler classes and/or handler methods.
  * <p>
- *  
+ * Anotation PostMapping is the newer annotation
+ * for RequestMapping(method = RequestMethod.POST), used to map web requests onto specific handler classes and/or handler methods.
  */
 @Controller
 public class UserController {
@@ -38,6 +39,7 @@ public class UserController {
     
     @GetMapping("/signup")
     public String showSignUpForm(User user) {
+    	
         return "add-user";
     }
     
