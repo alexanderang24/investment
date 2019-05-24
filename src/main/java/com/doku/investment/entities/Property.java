@@ -24,19 +24,16 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "user", schema="public")
-public class User {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="user_id_seq")
+@Table(name = "property", schema="public")
+public class Property {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="property_id_seq")
     @Column(name="id")
-    private long id;
+    private int id;
     
     @NotBlank(message = "Name is mandatory")
-    @Column(name="username")
-    private String username;
-   
-    @NotBlank(message = "Password is mandatory")
-    @Column(name="password")
-    private String password;
+    @Column(name="name")
+    private String name;
+    
 }

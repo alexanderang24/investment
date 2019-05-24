@@ -95,30 +95,14 @@
                         <div class="col-2">
                          <div class="input-group">
                              <label class="label">Property That You Have</label>
-                             <div class="p-t-10">
-                                 <label class="radio-container m-r-45">House
-                                     <input type="checkbox" name="property">
+                             
+                           	<div class="p-t-10" th:each="props : ${properties}">
+                                 <label class="radio-container m-r-45">
+                                     <input type="checkbox" name="property" th:value="${props.id}">
                                      <span class="checkmark"></span>
+                                     <span th:text="${props.name}"></span>
                                  </label>
-                             </div>
-                             <div class="p-t-10">
-                                 <label class="radio-container">Car
-                                     <input type="checkbox" name="property">
-                                     <span class="checkmark"></span>
-                                 </label>
-                             </div>
-                             <div class="p-t-10">
-                                 <label class="radio-container m-r-45">Motorcycle
-                                     <input type="checkbox" name="property">
-                                     <span class="checkmark"></span>
-                                 </label>
-                             </div>
-                             <div class="p-t-10">
-                                 <label class="radio-container m-r-45">Apartment
-                                     <input type="checkbox" name="property">
-                                     <span class="checkmark"></span>
-                                 </label>
-                             </div>
+                            </div> 
                          </div>
                         </div>
 
@@ -129,16 +113,13 @@
                         </div>
                     </div>
 <!-----------------------------------------------------------SELECT OPTION----------------------------------------------------------->                        
-                        <div class="input-group">
-                            <label class="label">Company</label>
+                       	<div class="input-group">
+                           	<label class="label">Company Industries</label>
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="Industries">
-                                    <option disabled="disabled" selected="selected">Industries</option>
-                                    <option>Financial Technology</option>
-                                    <option>Telecomunication</option>
-                                    <option>Insurance</option>
-                                    <option>Security</option>
-                                </select>
+	                            <select name="Industries" th:field="*{industries}">
+								    <option value="0" disabled="disabled">Select Industries</option>
+								    <option th:each="indus : ${industries}" th:value="${indus.id}" th:text="${indus.name}">
+							    </select>
                                 <div class="select-dropdown"></div>
                             </div>
                         </div>

@@ -1,5 +1,7 @@
 package com.doku.investment.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.doku.investment.entities.Property;
 import com.doku.investment.entities.User;
+import com.doku.investment.entities.model.IndustryDTO;
+import com.doku.investment.repositories.PropertyRepository;
 import com.doku.investment.repositories.UserRepository;
+import com.doku.investment.services.IndustryServices;
 
 /**
  * @author Laurence
@@ -30,6 +36,13 @@ import com.doku.investment.repositories.UserRepository;
 @Controller
 public class UserController {
     
+	@Autowired 
+	IndustryServices industryServices;
+
+	@Autowired 
+	PropertyRepository propertyRepository;
+	
+	
     private final UserRepository userRepository;
 
     @Autowired
@@ -38,15 +51,26 @@ public class UserController {
     }
     
     @GetMapping("/signup")
-    public String showSignUpForm(User user) {
+    public String showSignUpForm(Model model) {
     	
-        return "add-user";
+    	List<IndustryDTO> industries = industryServices.getListIndustry();
+    	List<Property> properties = propertyRepository.getAllData();
+    	
+    	model.addAttribute("industries", industries);
+    	model.addAttribute("properties", properties);
+    	
+        return "regis-user";
+    }
+    
+    @PostMapping("/profile")
+    public String profile(Model model) {
+        return "profile";
     }
     
     @PostMapping("/adduser")
     public String addUser(@Valid User user, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "add-user";
+            return "regis-user";
         }
         
         userRepository.save(user);
