@@ -32,27 +32,144 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Registration Form</h2>
-                    <form method="POST">
+                    <form action="#" th:action="@{/adduser}" th:object="${register}" method="post">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Name</label>
-                                    <input class="input--style-4" type="text" name="first_name">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username" th:field="*{username}">
+                                    
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">NPWP</label>
-                                    <input class="input--style-4" type="text" name="last_name">
+                                    <label class="label">Password</label>
+                                    <input class="input--style-4" type="text" name="password" th:field="*{password}">
                                 </div>
                             </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
+                                    <label class="label">Full Name</label>
+                                    <input class="input--style-4" type="text" name="fullName" th:field="*{fullName}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Job</label>
+                                    <input class="input--style-4" type="text" name="job" th:field="*{job}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Country</label>
+                                    <input class="input--style-4" type="text" name="country" th:field="*{country}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">City</label>
+                                    <input class="input--style-4" type="text" name="city" th:field="*{city}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Phone</label>
+                                    <input class="input--style-4" type="text" name="phone" th:field="*{phone}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Photo Profile</label>
+                                    <input class="input--style-4" type="text" name="linkPhoto" th:field="*{linkPhoto}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Facebook</label>
+                                    <input class="input--style-4" type="text" name=linkFB th:field="*{linkFB}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Instagram</label>
+                                    <input class="input--style-4" type="text" name="linkIG" th:field="*{linkIG}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Twitter</label>
+                                    <input class="input--style-4" type="text" name=linkTwitter th:field="*{linkTwitter}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Skill (Use comma without space)</label>
+                                    <input class="input--style-4" type="text" name="skill" th:field="*{skill}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Photo 1</label>
+                                    <input class="input--style-4" type="text" name=linkPhoto1 th:field="*{linkPhoto1}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Photo 2</label>
+                                    <input class="input--style-4" type="text" name="linkPhoto2" th:field="*{linkPhoto2}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Photo 3</label>
+                                    <input class="input--style-4" type="text" name=linkPhoto3 th:field="*{linkPhoto3}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Friends Photo 1</label>
+                                    <input class="input--style-4" type="text" name="linkFriends1" th:field="*{linkFriends1}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Friends Photo 2</label>
+                                    <input class="input--style-4" type="text" name=linkFriends2 th:field="*{linkFriends2}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Friends Photo 3</label>
+                                    <input class="input--style-4" type="text" name="linkFriends3" th:field="*{linkFriends3}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
                                     <label class="label">Birthday</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
+                                        <input class="input--style-4 js-datepicker" type="text" name="dob" th:field="*{dob}">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
@@ -64,11 +181,11 @@
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
+                                            <input type="radio" checked="checked" name="gender" value="male" th:field="*{gender}">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">Female
-                                            <input type="radio" name="gender">
+                                            <input type="radio" name="gender"  value="female" th:field="*{gender}">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -79,13 +196,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email">
+                                    <input class="input--style-4" type="email" name="email" th:field="*{email}">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Password</label>
-                                    <input class="input--style-4" type="password" name="phone">
+                                    <label class="label">NPWP</label>
+                                    <input class="input--style-4" type="password" name="npwp" th:field="*{npwp}">
                                 </div>
                             </div>
                         </div>
@@ -98,7 +215,7 @@
                              
                            	<div class="p-t-10" th:each="props : ${properties}">
                                  <label class="radio-container m-r-45">
-                                     <input type="checkbox" name="property" th:value="${props.idDto}">
+                                     <input type="checkbox" name="property" th:value="${props.idDto}" th:field="*{property}">
                                      <span class="checkmark"></span>
                                      <span th:text="${props.name}"></span>
                                  </label>
@@ -109,14 +226,14 @@
 <!-------------------------------------------------------------TEXT AREA------------------------------------------------------------->
                         <div class="col-2">
                         	<label class="label">Address</label>
-                            <textarea class="input--style-4" name="address" rows="3"></textarea> 
+                            <textarea class="input--style-4" name="address" rows="3" th:field="*{address}"></textarea> 
                         </div>
                     </div>
 <!-----------------------------------------------------------SELECT OPTION----------------------------------------------------------->                        
                        	<div class="input-group">
                            	<label class="label">Company Industries</label>
                             <div class="rs-select2 js-select-simple select--no-search">
-	                            <select name="Industries" th:field="*{industries}">
+	                            <select name="industry" th:field="*{industry}">
 								    <option value="0" disabled="disabled">Select Industries</option>
 								    <option th:each="indus : ${industries}" th:value="${indus.id}" th:text="${indus.name}">
 							    </select>
@@ -124,7 +241,8 @@
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button> 
+                            <!-- <input type="submit" value="Submit" > Submit</input>-->
                         </div>
                     </form>
                 </div>

@@ -29,7 +29,7 @@ public class IndustryServicesImpl implements IndustryServices{
 	public List<IndustryDto> getListIndustry(){
 		List<IndustryDto> industries = new ArrayList <>();
     	
-    	industries.add(new IndustryDto(1, "Financial Technology"));
+    	industries.add(new IndustryDto(1, "Financial Technology")); 
     	industries.add(new IndustryDto(2, "Telecomunication"));
     	industries.add(new IndustryDto(3, "Insurance"));
     	industries.add(new IndustryDto(4, "Security"));
