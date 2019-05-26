@@ -15,50 +15,74 @@
 	<description>Demo project for Investment</description>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<org.mapstruct.version>1.3.0.Final</org.mapstruct.version>
 	</properties>
 
 	<dependencies>
+	
+		<!-- Dependecy for postgresql adapter -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		
-		
-		
-		
-		
+		<!-- Dependecy for setter and getter for object model/entities/dto -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- Dependecy for Serving Web Content with Spring MVC @Controller, @RestController, @RequestMapping, @RestController -->
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        
+        <!-- Dependecy for Handling Form Submission from HTML Content -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+        
+        <!-- Dependecy for mapping objects to relational databases, ex: findAll, findById -->
+        <!-- @EnableAutoConfiguration, @SpringBootApplication, @Entity -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        
+        <!-- Dependecy for testing Spring Boot applications with libraries including JUnit, Hamcrest and Mockito -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+        
+        <!-- Dependecy for H2 Database -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+        
+        <!-- Dependecy for mapping java object DTO and Entities -->
+        <!-- Mapstruct will automatically generate MappersImpl to our project -->
+        <!-- So we need clean install first before running project -->
+		<dependency>
+	        <groupId>org.mapstruct</groupId>
+	        <artifactId>mapstruct</artifactId>
+	        <version>${org.mapstruct.version}</version>
+	    </dependency>
+		
 	</dependencies>
 
 	<build>
-		<finalName>spring-boot-crud</finalName>
+		<!-- Configuration for set jar name from project -->
+		<finalName>Investment</finalName>
+		
+		<!-- Configuration for setting application.properties -->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -70,6 +94,34 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            
+            <!-- Configuration for setting mapping DTO to Entities, MapStruct to Lombok -->
+            <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <version>3.5.1</version> <!-- or newer version -->
+	            <configuration>
+	                <source>1.8</source> <!-- depending on your project -->
+	                <target>1.8</target> <!-- depending on your project -->
+	                <annotationProcessorPaths>
+	                    <path>
+	                        <groupId>org.mapstruct</groupId>
+	                        <artifactId>mapstruct-processor</artifactId>
+	                        <version>${org.mapstruct.version}</version>
+	                    </path>
+	                    
+	                    <!-- add the dependency lombok in the annotation processor path -->
+	                    <path>
+			                <groupId>org.projectlombok</groupId>
+			                <artifactId>lombok</artifactId>
+			            <version>1.18.8</version>
+			            </path>
+	                    <!-- other annotation processors -->
+	                </annotationProcessorPaths>
+	            </configuration>
+	        </plugin>
+        
+        
         </plugins>
 	</build>
 
