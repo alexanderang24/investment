@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Sign Up</title>
+
+    <!-- Icons font CSS-->
+    <link th:href="@{/css/material-design-iconic-font.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link th:href="@{/css/select2.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{/css/daterangepicker.css}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link th:href="@{/css/main.css}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Registration Form</h2>
+                    <form class="registerForm" action="#" th:action="@{/adduser}" th:object="${formRegister}" method="post">
+                    	<div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Username</label>
+                                    <input class="input--style-4" type="text" name="username" th:field="*{username}">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Password</label>
+                                    <input class="input--style-4" type="password" name="password" th:field="*{password}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Full Name</label>
+                                    <input class="input--style-4" type="text" name="fullName" th:field="*{fullName}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Job</label>
+                                    <input class="input--style-4" type="text" name="job" th:field="*{job}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Country</label>
+                                    <input class="input--style-4" type="text" name="country" th:field="*{country}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">City</label>
+                                    <input class="input--style-4" type="text" name="city" th:field="*{city}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Phone</label>
+                                    <input class="input--style-4" type="text" name="phone" th:field="*{phone}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Photo Profile</label>
+                                    <input class="input--style-4" type="text" name="linkPhoto" th:field="*{linkPhoto}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Facebook</label>
+                                    <input class="input--style-4" type="text" name=linkFB th:field="*{linkFB}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Instagram</label>
+                                    <input class="input--style-4" type="text" name="linkIG" th:field="*{linkIG}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Twitter</label>
+                                    <input class="input--style-4" type="text" name=linkTwitter th:field="*{linkTwitter}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Skill (Use comma without space)</label>
+                                    <input class="input--style-4" type="text" name="skill" th:field="*{skill}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Photo 1</label>
+                                    <input class="input--style-4" type="text" name=linkPhoto1 th:field="*{linkPhoto1}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Photo 2</label>
+                                    <input class="input--style-4" type="text" name="linkPhoto2" th:field="*{linkPhoto2}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Photo 3</label>
+                                    <input class="input--style-4" type="text" name=linkPhoto3 th:field="*{linkPhoto3}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Friends Photo 1</label>
+                                    <input class="input--style-4" type="text" name="linkFriends1" th:field="*{linkFriends1}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Friends Photo 2</label>
+                                    <input class="input--style-4" type="text" name=linkFriends2 th:field="*{linkFriends2}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Link Friends Photo 3</label>
+                                    <input class="input--style-4" type="text" name="linkFriends3" th:field="*{linkFriends3}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Birthday</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="text" name="dob" th:field="*{dob}">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+<!-----------------------------------------------------------RADIO BUTTON----------------------------------------------------------->
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Gender</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Male
+                                            <input type="radio" checked="checked" name="gender" value="male" th:field="*{gender}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Female
+                                            <input type="radio" name="gender"  value="female" th:field="*{gender}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Email</label>
+                                    <input class="input--style-4" type="email" name="email" th:field="*{email}">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">NPWP</label>
+                                    <input class="input--style-4" type=text name="npwp" th:field="*{npwp}">
+                                </div>
+                            </div>
+                        </div>
+
+<!-------------------------------------------------------------CHECK BOX------------------------------------------------------------->                       
+                    <div class="row row-space">
+                        <div class="col-2">
+                         <div class="input-group">
+                             <label class="label">Property That You Have</label>
+                             
+                           	<div class="p-t-10" th:each="props : ${properties}">
+                                 <label class="radio-container m-r-45">
+                                     <input type="checkbox" name="property" th:value="${props.idDto}" th:field="*{property}">
+                                     <span class="checkmark"></span>
+                                     <span th:text="${props.name}"></span>
+                                 </label>
+                            </div> 
+                         </div>
+                        </div>
+
+<!-------------------------------------------------------------TEXT AREA------------------------------------------------------------->
+                        <div class="col-2">
+                        	<label class="label">Address</label>
+                            <textarea class="input--style-4" name="address" rows="3" th:field="*{address}"></textarea> 
+                        </div>
+                    </div>
+<!-----------------------------------------------------------SELECT OPTION----------------------------------------------------------->                        
+                       	<div class="input-group">
+                           	<label class="label">Company Industries</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+	                            <select name="industry" th:field="*{industry}">
+								    <option value="0" disabled="disabled">Select Industries</option>
+								    <option th:each="indus : ${industries}" th:value="${indus.id}" th:text="${indus.name}">
+							    </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button> 
+                            <!-- <input type="submit" value="Submit" > Submit</input>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <!-- Vendor JS-->
+    <script th:src="@{/js/select2.min.js}"></script>
+    <script th:src="@{/js/moment.min.js}"></script>
+    <script th:src="@{/js/daterangepicker.js}"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>    
+	
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

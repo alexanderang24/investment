@@ -1,275 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
 
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Colorlib Templates">
-    <meta name="author" content="Colorlib">
-    <meta name="keywords" content="Colorlib Templates">
+	    <title>Registration</title>
 
-    <!-- Title Page-->
-    <title>Sign Up</title>
+	    <!-- Bootstrap core CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
 
-    <!-- Icons font CSS-->
-    <link th:href="@{/css/material-design-iconic-font.min.css}" rel="stylesheet" media="all">
-    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	    <!-- Custom styles for this template -->
+	    <link th:href="@{/css/style.css}" rel="stylesheet">
 
-    <!-- Vendor CSS-->
-    <link th:href="@{/css/select2.min.css}" rel="stylesheet" media="all">
-    <link th:href="@{/css/daterangepicker.css}" rel="stylesheet" media="all">
+		<!-- Website Font style -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /> 
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 
-    <!-- Main CSS-->
-    <link th:href="@{/css/main.css}" rel="stylesheet" media="all">
-</head>
+		<!-- Website CSS style -->
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/> 
+		<!-- JS, Jquery Validator Field Form -->
+		 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<body>
-    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-        <div class="wrapper wrapper--w680">
-            <div class="alert alert-danger" role="alert">
-			  This is a danger alert—check it out!
-			</div>
-			
-            <div class="card card-4">
-                <div class="card-body">
-                    <h2 class="title">Registration Form</h2>
-                    <form action="#" th:action="@{/adduser}" th:object="${formRegister}" method="post">
-                    
-                    
-					<!-- <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">username Error</span> -->
-					<span th:text="${#fields.hasErrors('username')}" >username Error</span>
-                    
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Username</label>
-                                    <input class="input--style-4" type="text" name="username" th:field="*{username}">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Password</label>
-                                    <input class="input--style-4" type="password" name="password" th:field="*{password}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Full Name</label>
-                                    <input class="input--style-4" type="text" name="fullName" th:field="*{fullName}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Job</label>
-                                    <input class="input--style-4" type="text" name="job" th:field="*{job}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Country</label>
-                                    <input class="input--style-4" type="text" name="country" th:field="*{country}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">City</label>
-                                    <input class="input--style-4" type="text" name="city" th:field="*{city}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Phone</label>
-                                    <input class="input--style-4" type="text" name="phone" th:field="*{phone}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Link Photo Profile</label>
-                                    <input class="input--style-4" type="text" name="linkPhoto" th:field="*{linkPhoto}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Link Facebook</label>
-                                    <input class="input--style-4" type="text" name=linkFB th:field="*{linkFB}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Link Instagram</label>
-                                    <input class="input--style-4" type="text" name="linkIG" th:field="*{linkIG}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Link Twitter</label>
-                                    <input class="input--style-4" type="text" name=linkTwitter th:field="*{linkTwitter}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Skill (Use comma without space)</label>
-                                    <input class="input--style-4" type="text" name="skill" th:field="*{skill}">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Link Photo 1</label>
-                                    <input class="input--style-4" type="text" name=linkPhoto1 th:field="*{linkPhoto1}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Link Photo 2</label>
-                                    <input class="input--style-4" type="text" name="linkPhoto2" th:field="*{linkPhoto2}">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Link Photo 3</label>
-                                    <input class="input--style-4" type="text" name=linkPhoto3 th:field="*{linkPhoto3}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Link Friends Photo 1</label>
-                                    <input class="input--style-4" type="text" name="linkFriends1" th:field="*{linkFriends1}">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Link Friends Photo 2</label>
-                                    <input class="input--style-4" type="text" name=linkFriends2 th:field="*{linkFriends2}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Link Friends Photo 3</label>
-                                    <input class="input--style-4" type="text" name="linkFriends3" th:field="*{linkFriends3}">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Birthday</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="dob" th:field="*{dob}">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            
-<!-----------------------------------------------------------RADIO BUTTON----------------------------------------------------------->
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Gender</label>
-                                    <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Male
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+
+		<!-- JS Select Picker -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
+
+		<!-- Custom CSS For Registration -->
+		<style type="text/css">			
+		body, html{
+		    height: 100%;
+		 	background-color: #60a3bc;
+		}
+
+		.main{
+		 	margin-top: 70px;
+		}
+
+		h1.title { 
+			font-size: 40px;
+			font-family: 'Passion One', cursive; 
+			font-weight: 400; 
+		}
+
+		p.desc { 
+			font-size: 30px;
+			font-family: 'Passion One', cursive; 
+			font-weight: 400; 
+			/*color:#3e9ac3;*/
+			/*color:white;*/
+			text-shadow:
+				-1px -1px 0 #FFFFFF,
+				1px -1px 0 #FFFFFF,
+				-1px 1px 0 #FFFFFF,
+				1px 1px 0 #FFFFFF;
+		}
+
+		hr{
+			width: 10%;
+			color: #fff;
+			margin-left: 45%;
+			margin-right: 45%;
+		}
+
+		.form-group{
+			margin-bottom: 15px;
+		}
+
+		label{
+			margin-bottom: 15px;
+		}
+
+		input,
+		input::-webkit-input-placeholder {
+		    font-size: 11px;
+		    padding-top: 3px;
+		}
+
+		.main-login{
+		 	background-color: #fff;
+		    /* shadows and rounded borders */
+		    -moz-border-radius: 2px;
+		    -webkit-border-radius: 2px;
+		    border-radius: 2px;
+		    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+		}
+
+		.main-center{
+		 	margin-top: 30px;
+		 	margin: 0 auto;
+		 	max-width: 600px;
+		    padding: 40px 40px;
+
+		}
+
+		.login-button{
+			margin-top: 5px;
+		}
+
+		.login-register{
+			font-size: 11px;
+			text-align: center;
+		}			
+		</style>
+	</head>
+	<body>
+    <!-- Start Body -->
+		<div class="container">
+			<div class="row main">
+				<div class="panel-heading">
+	               <div class="panel-title text-center">
+	               		<img th:src="@{/images/logo.png}" class="img-responsive center-block" style="width: 330; height: auto;">
+	               		<p class="desc">Registration Account Investment</p>
+	               		<hr style="text-align: center;" />
+	               	</div>
+	            </div> 
+				<div class="main-login main-center">
+				
+				<form id="regis" name="regis" class="form-horizontal"
+				    data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+				    data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+				    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"					
+					method="post"
+				    th:action="@{/adduser}" th:object="${formRegister}">
+				    
+					<!-- Success message -->
+					<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+
+						<div class="form-group">
+							<label for="fullName" class="cols-sm-2 control-label">Full Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="fullName" id="fullName"  placeholder="Enter your Full Name"
+									required data-bv-notempty-message="The Full Name is required"  th:field="*{fullName}"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="phone" class="cols-sm-2 control-label">Mobile Phone Number</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-mobile-phone" aria-hidden="true" style="font-size:20px"></i></span>
+									<span class="input-group-addon">+62</span>
+									<input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your Mobile Phone Number"
+									data-bv-integer="true" data-bv-integer-message="Wrong Number"
+									required data-bv-notempty-message="The Mobile Phone Number is required" th:field="*{phone}" 
+									/>
+								</div>								
+        						<div id="phHint" class="text-danger"></div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="birthday" class="cols-sm-2 control-label">Birthday</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>	
+									<input type="date" class="form-control"  name="birthday" id="birthday" placeholder="Select your Birthday"
+									required data-bv-notempty-message="The Birthday is required" th:field="*{dob}"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="gender" class="cols-sm-2 control-label">Gender</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-venus-mars" aria-hidden="true"></i></span>
+									
+									<label class="input-group-addon">Male
                                             <input type="radio" checked="checked" name="gender" value="male" th:field="*{gender}">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <label class="radio-container">Female
+                                        <label class="input-group-addon">Female
                                             <input type="radio" name="gender"  value="female" th:field="*{gender}">
                                             <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email" th:field="*{email}">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">NPWP</label>
-                                    <input class="input--style-4" type=text name="npwp" th:field="*{npwp}">
-                                </div>
-                            </div>
-                        </div>
+                                        </label>		
+									
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="address" class="cols-sm-2 control-label">Address</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-home" aria-hidden="true" style="font-size:18px"></i></span>
+									<textarea rows="2" class="form-control" name="address" id="address"  placeholder="Enter your Address"
+									required data-bv-notempty-message="The Address is required" th:field="*{address}">
+									</textarea>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="skill" class="cols-sm-2 control-label">Skill</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="skill" id="skill"  placeholder="CSS,CS3,PHP,Java"
+									required data-bv-notempty-message="The Skill is required"  th:field="*{skill}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="job" class="cols-sm-2 control-label">Job</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-briefcase" aria-hidden="true"></i></span>
+									<select class="form-control" name="job" id="job"
+									required data-bv-notempty-message="The Job is required" th:field="*{job}">
+										<option value="0" disabled="disabled"> -- Choose your Job -- </option>
+									  	<option value="developer">Developer</option>
+									  	<option value="others">Others</option>
+									</select>
+								</div>
+							</div>
+						</div>
 
-<!-------------------------------------------------------------CHECK BOX------------------------------------------------------------->                       
-                    <div class="row row-space">
-                        <div class="col-2">
-                         <div class="input-group">
-                             <label class="label">Property That You Have</label>
-                             
-                           	<div class="p-t-10" th:each="props : ${properties}">
-                                 <label class="radio-container m-r-45">
-                                     <input type="checkbox" name="property" th:value="${props.idDto}" th:field="*{property}">
-                                     <span class="checkmark"></span>
-                                     <span th:text="${props.name}"></span>
-                                 </label>
-                            </div> 
-                         </div>
-                        </div>
+						<div class="form-group">
+							<label for="city" class="cols-sm-2 control-label">City</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="city" id="city"  placeholder="Jakarta"
+									required data-bv-notempty-message="The City is required"  th:field="*{city}"
+									/>
+								</div>
+							</div>
+						</div>
 
-<!-------------------------------------------------------------TEXT AREA------------------------------------------------------------->
-                        <div class="col-2">
-                        	<label class="label">Address</label>
-                            <textarea class="input--style-4" name="address" rows="3" th:field="*{address}"></textarea> 
-                        </div>
-                    </div>
-<!-----------------------------------------------------------SELECT OPTION----------------------------------------------------------->                        
-                       	<div class="input-group">
-                           	<label class="label">Company Industries</label>
-                            <div class="rs-select2 js-select-simple select--no-search">
-	                            <select name="industry" th:field="*{industry}">
-								    <option value="0" disabled="disabled">Select Industries</option>
-								    <option th:each="indus : ${industries}" th:value="${indus.id}" th:text="${indus.name}">
-							    </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div>
-                        <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button> 
-                            <!-- <input type="submit" value="Submit" > Submit</input>-->
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+						<div class="form-group">
+							<label for="country" class="cols-sm-2 control-label">Country</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="country" id="country"  placeholder="Indonesia"
+									required data-bv-notempty-message="The Country is required"  th:field="*{country}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="linkPhoto" class="cols-sm-2 control-label">Link Photo Profile</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="linkPhoto" id="linkPhoto"  placeholder="https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/1072436_10201614489428856_93847078_o.jpg?_nc_cat=100&_nc_ht=scontent-sin6-1.xx&oh=e272c5e98a89df5deee9630f15f86cdf&oe=5D5A7259"
+									required data-bv-notempty-message="The Link Photo Profile is required"  th:field="*{linkPhoto}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="linkFB" class="cols-sm-2 control-label">Link Facebook</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="linkFB" id="linkFB"  placeholder="https://www.facebook.com/laurence.butarbutar"
+									required data-bv-notempty-message="The Link Facebook is required"  th:field="*{linkFB}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="linkIG" class="cols-sm-2 control-label">Link Instagram</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-instagram" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="linkIG" id="linkIG"  placeholder="https://www.instagram.com/shade_hard_line/"
+									required data-bv-notempty-message="The Link Instagram is required"  th:field="*{linkIG}"
+									/>
+								</div>
+							</div>
+						</div>
 
-    <!-- Jquery JS-->
-    <script th:src="@{/js/jquery.min.js}"></script>
-    <!-- Vendor JS-->
-    <script th:src="@{/js/select2.min.js}"></script>
-    <script th:src="@{/js/moment.min.js}"></script>
-    <script th:src="@{/js/daterangepicker.js}"></script>
+						<div class="form-group">
+							<label for="linkTwitter" class="cols-sm-2 control-label">Link Twitter</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="linkTwitter" id="linkTwitter"  placeholder="https://twitter.com/shade_hard_line"
+									required data-bv-notempty-message="The Link Twitter is required"  th:field="*{linkTwitter}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="linkPhoto1" class="cols-sm-2 control-label">Link Photo 1</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="linkPhoto1" id="linkPhoto1"  placeholder="https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/901073_10200198621153034_619345332_o.jpg?_nc_cat=106&_nc_ht=scontent-sin6-1.xx&oh=c4ac2a23662111440fd4cfe7d98c4e76&oe=5D671D4F"
+									required data-bv-notempty-message="The Link Photo 1 is required"  th:field="*{linkPhoto1}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="linkPhoto2" class="cols-sm-2 control-label">Link Photo 2</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="linkPhoto2" id="linkPhoto2"  placeholder="https://scontent-sin2-1.xx.fbcdn.net/v/t1.0-9/1381968_10200801608387338_1432902616_n.jpg?_nc_cat=107&_nc_ht=scontent-sin2-1.xx&oh=a53285abd68eac0ce0cee2639dbaa691&oe=5D9EEA7F"
+									required data-bv-notempty-message="The Link Photo 2 is required"  th:field="*{linkPhoto2}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="linkPhoto3" class="cols-sm-2 control-label">Link Photo 3</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="linkPhoto3" id="linkPhoto3"  placeholder="https://scontent-sin2-1.xx.fbcdn.net/v/t1.0-9/1395781_10200801623427714_600507687_n.jpg?_nc_cat=109&_nc_ht=scontent-sin2-1.xx&oh=95a502222361caf1108400b342d7d8e3&oe=5D62474E"
+									required data-bv-notempty-message="The Link Photo 3 is required"  th:field="*{linkPhoto3}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="linkFriends1" class="cols-sm-2 control-label">Link Friends 1</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="linkFriends1" id="linkFriends1"  placeholder="https://images.unsplash.com/flagged/photo-1558765363-678bdcb1f50c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+									required data-bv-notempty-message="The Link Friends 1 is required"  th:field="*{linkFriends1}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="linkFriends2" class="cols-sm-2 control-label">Link Friends 2</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="linkFriends2" id="linkFriends2"  placeholder="https://images.unsplash.com/photo-1556741533-e228ee50f8b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+									required data-bv-notempty-message="The Link Friends 2 is required"  th:field="*{linkFriends2}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="linkFriends3" class="cols-sm-2 control-label">Link Friends 3</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="linkFriends3" id="linkFriends3"  placeholder="https://images.unsplash.com/photo-1556741533-927182355585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80"
+									required data-bv-notempty-message="The Link Friends 3 is required"  th:field="*{linkFriends3}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="npwp" class="cols-sm-2 control-label">NPWP</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="npwp" id="npwp"  placeholder="99.999.999.9-999.999"
+									required data-bv-notempty-message="The NPWP is required"  th:field="*{npwp}"
+									/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="property" class="cols-sm-2 control-label">Property That You Have</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-building-o" aria-hidden="true"></i></span>
+									<div class="input-group-addon" th:each="props : ${properties}">
+		                                 <label class="input-group-addon">
+		                                     <input type="checkbox" name="property" th:value="${props.idDto}" th:field="*{property}">
+		                                     <span class="checkmark"></span>
+		                                     <span th:text="${props.name}"></span>
+		                                 </label>
+		                            </div>
+								</div>
+							</div>
+						</div>				
+						
+						<div class="form-group">
+							<label for="industry" class="cols-sm-2 control-label" multiple data-max-options="2">Company Industries</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-industry" aria-hidden="true"></i></span>				
+									<select class="selectpicker form-control" name="industry" id="industry" multiple data-max-options="2"
+  									data-size="7"
+  									data-validation="required" th:field="*{industry}"
+									>
+										<option value="0" disabled="disabled">Select Industries</option>
+									    <option th:each="indus : ${industries}" th:value="${indus.id}" th:text="${indus.name}">			
+									</select>
+								</div>
+								<input type="hidden" name="hidden_hobbies" id="hidden_hobbies" />
+        						<div id="hobHint" class="text-danger"></div>	
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+									<input type="email" class="form-control" id="email" name="email" placeholder="shade_hard_line@yahoo.com" 
+									required data-bv-notempty-message="The Email is required" th:field="*{email}"
+									/>
+								</div>
+							</div>
+						</div>
 
-    <!-- Main JS-->
-    <script src="js/global.js"></script>
-	
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Username</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:15px"></i></span>
+									<input type="text" class="form-control" id="username" name="username" placeholder="Laurence" 
+									required data-bv-notempty-message="The Username is required" th:field="*{username}"
+									/>
+								</div>
+        						<div id="usHint" class="text-danger"></div>
+							</div>
+						</div>
 
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" minlength=6 name="password" id="password" placeholder="123456" required data-bv-notempty-message="The Password is required" data-bv-identical="true" data-bv-identical-field="confirmPassword"
+					                data-bv-identical-message="The password and its confirm are not the same" th:field="*{password}"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="confirmPassword" class="cols-sm-2 control-label">Confirm Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword"
+									required data-bv-notempty-message="The Confirm Password is required"
+									data-bv-identical="true"
+					                data-bv-identical-field="password"
+					                data-bv-identical-message="The password and its confirm are not the same" 
+					                />
+								</div>								
+        						<div class="help-block with-errors"></div>
+							</div>
+						</div> 
+
+						<div class="form-group ">
+							<button type="submit" id="buttonRegister" name="buttonRegister" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+						</div>
+					</form>		
+				</div>
+			</div>
+		</div>
+	<!-- End Body -->
+
+	<script>
+		$(document).ready(function() {
+		    $('#regis').bootstrapValidator();
+		});
+	</script>
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</body>
+
+	<!-- Restart Message Success -->
 </html>
-<!-- end document-->

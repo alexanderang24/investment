@@ -136,7 +136,7 @@ public class UserController {
 //          return "redirect:/signup";
           return "redirect:error";
     	}else {
-            return "profile"; 
+            return "index"; 
     	}
     }
     
