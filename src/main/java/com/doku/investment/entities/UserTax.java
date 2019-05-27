@@ -16,7 +16,7 @@ import lombok.Data;
  * @author Laurence
  * @see Entity, Data
  * <p>
- * Entities For Handle user Table
+ * Entities For Handle user_tax Table
  * <p>
  * Anotation Entity is for mapping column table to java object
  * <p>
@@ -30,26 +30,35 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "user", schema="public")
-public class User implements Serializable{
+@Table(name = "user_tax", schema="public")
+public class UserTax implements Serializable{
     
 	/** serialVersionUID is for Communication over the network, converting the state of an object into a byte stream,
 	 *  because network infrastructure and the hardware disks that understands bits and bytes but not JAVA objects.
 	 *  <p>
 	 *  Furthermore, serialVersionUID used for Lightweight persistence–the archival of an object
 	 */
-	private static final long serialVersionUID = -3151924490495766088L;
+	private static final long serialVersionUID = -8947614973741408157L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="user_id_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="user_tax_id_seq")
     @Column(name="id")
     private int id;
-    
-    @NotBlank(message = "Username is mandatory")
-    @Column(name="username")
-    private String username;
-   
-    @NotBlank(message = "Password is mandatory")
-    @Column(name="password")
-    private String password;
+
+	@NotBlank(message = "User Detail ID is mandatory")
+    @Column(name="userdetail_id")
+	private String userDetailId;
+	
+	@NotBlank(message = "NPWP is mandatory")
+    @Column(name="npwp")
+	private String npwp;
+
+    @Column(name="gender")
+    private String gender;
+
+    @Column(name="property")
+    private String property;
+
+    @Column(name="industry")
+    private String industry;
 }

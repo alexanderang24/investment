@@ -4,6 +4,8 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * @author Laurence
  * @see Data
@@ -24,7 +26,10 @@ public class UserDetailDto implements Serializable{
 	
 	private Long id;
     private Long userId;
+
+	@NotBlank(message = "fullName is mandatory")
     private String fullName;
+	
     private String job;
     private String country;
     private String city;

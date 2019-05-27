@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<title>Error</title>
+	<link th:href="@{/css/error.css}" rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+            
+                <h1>
+                    Oops!</h1>
+                <h2>
+                    You've Got An Error</h2>
+                <div class="error-details">
+                
+                <table>
+                   <tr th:each="error : ${errors}">
+					    <td th:text="${error.defaultMessage}" />
+					    <td th:text="${error.field}" />
+					</tr>
+				</table>
+				
+                </div>
+                
+                <div class="error-actions">
+                    <a href="http://www.jquery2dotnet.com" class="btn btn-primary btn-lg">
+                    	<span class="glyphicon glyphicon-home"></span>
+                        Take Me Home 
+                    </a>
+                    <a href="http://www.jquery2dotnet.com" class="btn btn-default btn-lg">
+                    	<span class="glyphicon glyphicon-envelope"></span>
+                    	Contact Support
+                   	</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

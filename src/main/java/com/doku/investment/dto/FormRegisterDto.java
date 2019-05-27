@@ -16,7 +16,7 @@ import javax.validation.constraints.NotBlank;
  * Anotation Data is for generating getter and setter
  */
 @Data
-public class RegisterDto implements Serializable{
+public class FormRegisterDto implements Serializable{
 	
 	/** serialVersionUID is for Communication over the network, converting the state of an object into a byte stream,
 	 *  because network infrastructure and the hardware disks that understands bits and bytes but not JAVA objects.
