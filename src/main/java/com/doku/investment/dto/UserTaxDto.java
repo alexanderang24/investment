@@ -24,9 +24,9 @@ public class UserTaxDto implements Serializable{
 	 */
 	private static final long serialVersionUID = -6151157605885698050L;
 	
-    private int id;
+    private Integer id;
     
-    private int userDetailId;
+    private Integer userDetailId;
 
 	@NotBlank(message = "NPWP is mandatory")
 	private String npwp;

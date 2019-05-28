@@ -16,7 +16,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * Anotation SpringBootApplication is newer annotation for enable auto-configuration three features anotation 
  * EnableAutoConfiguration, ComponentScan, Configuration.
  * <p>
- * Configure manually : Component, Entities, and Repositories Package will be used, this is forsecure project.
+ * Configure manually : Component, Entities, and Repositories Package will be used, this is for secure project.
  */
 @SpringBootApplication
 @EnableAutoConfiguration

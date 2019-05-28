@@ -298,7 +298,7 @@
 							<label for="linkTwitter" class="cols-sm-2 control-label">Link Twitter</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-twitter-square" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkTwitter" id="linkTwitter"  placeholder="https://twitter.com/shade_hard_line"
 									required data-bv-notempty-message="The Link Twitter is required"  th:field="*{userDetailDto.linkTwitter}"
 									/>
@@ -454,8 +454,12 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" minlength=6 name="password" id="password" placeholder="123456" required data-bv-notempty-message="The Password is required" data-bv-identical="true" data-bv-identical-field="confirmPassword"
-					                data-bv-identical-message="The password and its confirm are not the same" th:field="*{userDto.password}"
+									<input type="password" class="form-control" minlength=6 name="password" id="password" placeholder="123456"
+									required data-bv-notempty-message="The Password is required" 
+									data-bv-identical="true"
+					                data-bv-identical-field="confirmPassword"
+					                data-bv-identical-message="The password and its confirm are not the same" 
+									th:field="*{userDto.password}"
 									/>
 								</div>
 							</div>

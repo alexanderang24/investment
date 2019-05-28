@@ -22,7 +22,7 @@ public class IndustryDto implements Serializable{
 	 */
 	private static final long serialVersionUID = 4303102076422745976L;
 	
-	private int id;
+	private Integer id;
     private String name;
     
     public IndustryDto(int id, String name){

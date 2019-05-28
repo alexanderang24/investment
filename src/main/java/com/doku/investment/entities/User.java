@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -41,9 +42,10 @@ public class User implements Serializable{
 	private static final long serialVersionUID = -3151924490495766088L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="user_id_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="userId_seq")
+	@SequenceGenerator(sequenceName = "user_id_seq", initialValue=2, allocationSize = 1, name = "userId_seq")
     @Column(name="id")
-    private int id;
+    private Integer id;
     
     @NotBlank(message = "Username is mandatory")
     @Column(name="username")

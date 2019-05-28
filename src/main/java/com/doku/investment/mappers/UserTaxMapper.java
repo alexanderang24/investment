@@ -1,22 +1,17 @@
 package com.doku.investment.mappers;
 
-import java.util.Collection;
-import java.util.List;
-
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
-import com.doku.investment.dto.FormRegisterDto;
-import com.doku.investment.dto.PropertyDto;
-import com.doku.investment.dto.UserDetailDto;
-import com.doku.investment.entities.Property;
+import com.doku.investment.dto.UserDto;
+import com.doku.investment.dto.UserTaxDto;
+import com.doku.investment.entities.User;
+import com.doku.investment.entities.UserTax;
 
 /**
  * @author Laurence
  * <p>
- * Mapper For Handle Mapping PropertyDTO and Property
+ * Mapper For Handle Mapping UserTaxDto and UserTax
  * <p>
  * Anotation Mapper is for Marks an interface or abstract class as a mapper 
  * and activates the generation of a implementation of that type viaMapStruct.
@@ -36,22 +31,16 @@ import com.doku.investment.entities.Property;
  * </pre>
  * Anotation Mapping is for Mapping attribute from ("source") to ("target").
  * This is used if the java object have different attributes name.
+ * <p>
+ * Mapping in here is to convert type data from Date to String using custom format
  */
 @Mapper
-public interface FormRegisterMapper {
-	    
-	FormRegisterMapper INSTANCE = Mappers.getMapper( FormRegisterMapper.class );
+public interface UserTaxMapper {
 	
-//	@Mappings({
-//    @Mapping(target = "idDto", source = "property.id")
-//	})
-//    UserDetailDto propertyToPropertyDto(Property property);
-	UserDetailDto formRegisterToUserDetailDto(FormRegisterDto formRegisterDto);
+	UserTaxMapper INSTANCE = Mappers.getMapper( UserTaxMapper.class );
 	
-	@Mappings({
-    @Mapping(target = "id", source = "propertyDto.idDto")
-	})
-    Property propertyDtoToProperty(PropertyDto propertyDto);
+    UserTaxDto userTaxToUserTaxDto(UserTax userTax);
+    
+    UserTax userTaxDtoToUserTax(UserTaxDto userTaxDto);
 	
-	List<PropertyDto> toListProperty(Collection<Property> properties);
 }

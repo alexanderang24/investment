@@ -2,6 +2,7 @@ package com.doku.investment.controllers;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
@@ -21,12 +22,17 @@ import com.doku.investment.dto.FormRegisterDto;
 import com.doku.investment.dto.UserDetailDto;
 import com.doku.investment.dto.UserDto;
 import com.doku.investment.dto.UserTaxDto;
+import com.doku.investment.entities.User;
 import com.doku.investment.entities.UserDetail;
+import com.doku.investment.entities.UserTax;
 import com.doku.investment.mappers.PropertyMapper;
 import com.doku.investment.mappers.UserDetailMapper;
+import com.doku.investment.mappers.UserMapper;
+import com.doku.investment.mappers.UserTaxMapper;
 import com.doku.investment.repositories.PropertyRepository;
 import com.doku.investment.repositories.UserDetailRepository;
 import com.doku.investment.repositories.UserRepository;
+import com.doku.investment.repositories.UserTaxRepository;
 import com.doku.investment.services.IndustryServices;
 
 
@@ -49,6 +55,7 @@ import com.doku.investment.services.IndustryServices;
  * for RequestMapping(method = RequestMethod.POST), used to map web requests onto specific handler classes and/or handler methods.
  */
 @Controller
+@Transactional
 public class UserController {
     
 	@Autowired 
@@ -62,18 +69,44 @@ public class UserController {
 
 	@Autowired 
 	UserDetailRepository userDetailRepository;
+
+	@Autowired 
+	UserTaxRepository userTaxRepository;
 	
 	/**
 	 * @author Laurence
 	 * @see GetMapping
 	 * <p>
+	 * Endpoint for http://localhost:8080
+	 * <p>
+	 * This is controller to process request to index.html
+	 * <p>
+	 * @param model is for link/transfer java object to html/html to java object, param in method addAttribute is model in html (left) and java model (right)  
+	 * <p>
+	 * We need to declare register first before go to register.html because in that html we used RegisterDto,
+	 * so we need declare first in controller.
+	 * <p>
+	 * @return index go to index.html
+	 */
+    @GetMapping("/")
+    public String showLogin(Model model) {
+    	    	
+    	model.addAttribute("user", new UserDto());
+    	
+    	return "index";
+    }    
+    
+	/**
+	 * @author Laurence
+	 * @see GetMapping, Valid, ModelAttribute
+	 * <p>
 	 * Endpoint for http://localhost:8080/signup
 	 * <p>
-	 * This is controller to call register.html
+	 * This is controller to process request to register.html
 	 * <p>
-	 * @param model is for link/transfer java object to html, param in method addAttribute is model in html (left) and java model (right)  
+	 * @param model is for link/transfer java object to html/html to java object, param in method addAttribute is model in html (left) and java model (right)  
 	 * <p>
-	 * propertiesDto this is exmaple how to use MapperStruct
+	 * propertiesDto this is example how to use MapperStruct.
 	 * <p>
 	 * We need to declare register first before go to register.html because in that html we used RegisterDto,
 	 * so we need declare first in controller.
@@ -81,15 +114,13 @@ public class UserController {
 	 * @return register go to register.html
 	 */
     @GetMapping("/signup")
-    public String showSignUpForm(@Valid @ModelAttribute UserDto user, BindingResult result, Model model) {
+    public String showSignUpForm(Model model) {
     	
-    	List<IndustryDto> industries = industryServices.getListIndustry();
-    	
+    	List<IndustryDto> industries = industryServices.getListIndustry();    	
     	List<PropertyDto> propertiesDto = PropertyMapper.INSTANCE.toListProperty(propertyRepository.findAll());
     	    	
     	model.addAttribute("industries", industries);
     	model.addAttribute("properties", propertiesDto);
-
     	model.addAttribute("formRegister", new FormRegisterDto());
     	
         return "register";
@@ -99,47 +130,74 @@ public class UserController {
 	 * @author Laurence
 	 * @see PostMapping, Valid, ModelAttribute
 	 * <p>
+	 * Endpoint for http://localhost:8080/adduser
+	 * <p>
+	 * This is controller to process request to register.html
+	 * <p>
 	 * Anotation Valid is for validation attribute in RegisterDto, reference to anotation NotBlank, NotEmpty, etc 
 	 * <p>
 	 * Anotation ModelAttribute is for mapping data register from html to java object (DTO)
 	 * <p>
-	 * Endpoint for http://localhost:8080/adduser
-	 * <p>
-	 * This is controller to process registration user
-	 * <p>
-	 * @param register is getting value from register.html  
+	 * @param formRegister is getting value from register.html  
 	 * <p>
 	 * @param result is for validation if input from user is not what we expected, can reference to Anotation Valid
 	 * <p>
-	 * @param model is for link/transfer java object to html, param in method addAttribute is model in html (left) and java model (right)
+	 * @param model is for link/transfer java object to html/html to java object, param in method addAttribute is model in html (left) and java model (right)
 	 * <p>
 	 * @return index go to index.html if input or result no error
 	 * <p>
-	 * @return register go to register.html if input or result has error
+	 * @return register go to error.html if input or result has error
 	 */
     @PostMapping("/adduser")
     	public String addUser(@Valid @ModelAttribute FormRegisterDto formRegister, BindingResult result, Model model) {
     	if (result.hasErrors()) {
-//          return "redirect:/signup";
           return "redirect:error";
     	}else {
     		
-    		UserDetail profile = UserDetailMapper.INSTANCE.userDetailDtoToUserDetail(formRegister.getUserDetailDto());
+    		User user = UserMapper.INSTANCE.userDtoToUser(formRegister.getUserDto());
+    		UserDetail userDetail = UserDetailMapper.INSTANCE.userDetailDtoToUserDetail(formRegister.getUserDetailDto());
+    		UserTax userTax = UserTaxMapper.INSTANCE.userTaxDtoToUserTax(formRegister.getUserTaxDto());
+
+    		userRepository.save(user);
+    		userDetail.setUserId(user.getId());
+    		userDetailRepository.save(userDetail);
+    		
+    		userTax.setId(userTaxRepository.getNextVal());
+    		userTax.setUserDetailId(userDetail.getId());
+    		userTaxRepository.save(userTax);
     		
             return "index"; 
     	}
     }
     
-    
-    
-    
-    
-    
-    
+    /**
+	 * @author Laurence
+	 * @see PostMapping, Valid, ModelAttribute
+	 * <p>
+	 * Endpoint for http://localhost:8080/profile
+	 * <p>
+	 * This is controller to process request to profile.html, process registration use
+	 * <p>
+	 * Anotation Valid is for validation attribute in RegisterDto, reference to anotation NotBlank, NotEmpty, etc 
+	 * <p>
+	 * Anotation ModelAttribute is for mapping data register from html to java object (DTO)
+	 * <p>
+	 * This is controller to process registration user
+	 * <p>
+	 * @param formRegister is getting value from register.html  
+	 * <p>
+	 * @param result is for validation if input from user is not what we expected, can reference to Anotation Valid
+	 * <p>
+	 * @param model is for link/transfer java object to html/html to java object, param in method addAttribute is model in html (left) and java model (right)
+	 * <p>
+	 * @return index go to index.html if input or result no error
+	 * <p>
+	 * @return register go to error.html if input or result has error
+	 */
     @PostMapping("/profile")
-    public String profile(Model model) {
+    public String profile(@Valid @ModelAttribute UserDto user, BindingResult result, Model model) {
     	
-    	int idUser = 1;
+    	Integer idUser = userRepository.getIdFindByUsernameAndPassword(user.getUsername(), user.getPassword());
     	
     	UserDetailDto profile = UserDetailMapper.INSTANCE.userDetailToUserDetailDto(userDetailRepository.findByUserId(idUser));
     	

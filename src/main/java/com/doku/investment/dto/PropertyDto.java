@@ -22,6 +22,6 @@ public class PropertyDto implements Serializable{
 	 */
 	private static final long serialVersionUID = -4186877500308938646L;
 	
-	private String idDto;
+	private Integer idDto;
     private String name;
 }

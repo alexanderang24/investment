@@ -40,7 +40,7 @@ public interface UserDetailMapper {
 	
 	@Mapping(target="dob", source="dob", dateFormat="dd/MM/yyyy")
     UserDetailDto userDetailToUserDetailDto(UserDetail userDetail);
-
-	@Mapping(target="dob", source="dob", dateFormat="dd/MM/yyyy")
+	
+	@Mapping(target="dob", source="dob", dateFormat="yyyy-MM-dd")
     UserDetail userDetailDtoToUserDetail(UserDetailDto userDetailDto);
 }

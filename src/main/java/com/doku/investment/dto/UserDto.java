@@ -24,7 +24,7 @@ public class UserDto implements Serializable{
 	 */
 	private static final long serialVersionUID = 1550979039720070466L;
 	
-	private int id;
+	private Integer id;
 
     @NotBlank(message = "Username is mandatory")
     private String username;

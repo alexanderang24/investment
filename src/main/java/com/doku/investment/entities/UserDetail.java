@@ -8,8 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Range;
 
 import lombok.Data;
 
@@ -43,12 +47,13 @@ public class UserDetail implements Serializable{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="userDetail_id_seq")
+	@SequenceGenerator(sequenceName = "user_detail_id_seq", initialValue=100, allocationSize = 1, name = "userDetail_id_seq")
     @Column(name="id")
-	private int id;
+	private Integer id;
 	
-	@NotBlank(message = "userId is mandatory")
+	@Range(min=1, max=99, message="userId is mandatory")
     @Column(name="user_id")
-    private int userId;
+    private Integer userId;
 	
 	@NotBlank(message = "fullName is mandatory")
     @Column(name="full_name")

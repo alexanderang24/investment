@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Range;
 
 import lombok.Data;
 
@@ -41,13 +44,14 @@ public class UserTax implements Serializable{
 	private static final long serialVersionUID = -8947614973741408157L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="user_tax_id_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="userTax_id_seq")
+	@SequenceGenerator(sequenceName = "user_tax_id_seq", initialValue=200, allocationSize = 1, name = "userTax_id_seq")
     @Column(name="id")
-    private int id;
+    private Integer id;
 
-	@NotBlank(message = "User Detail ID is mandatory")
+	@Range(min=100, max=199, message="userDetailId is mandatory")
     @Column(name="userdetail_id")
-	private String userDetailId;
+	private Integer userDetailId;
 	
 	@NotBlank(message = "NPWP is mandatory")
     @Column(name="npwp")
