@@ -25,36 +25,39 @@ public class FormRegisterDto implements Serializable{
 	 */
 	private static final long serialVersionUID = -2464267853164798339L;
 	
-	@NotBlank(message = "Full Name is mandatory")
-    private String fullName;
-	
-    private String job;
-    private String country;
-    private String city;
-    private String dob;
-    private String address;
-    private String email;
-    private String phone;
-    private String linkPhoto;
-    private String linkFB;
-    private String linkIG;
-    private String linkTwitter;
-    private String skill;
-    private String linkPhoto1;
-    private String linkPhoto2;
-    private String linkPhoto3;
-    private String linkFriends1;
-    private String linkFriends2;
-    private String linkFriends3;
-
-    private String npwp;
-    private String gender;
-    private String property;
-    private String industry;
-
-    @NotBlank(message = "Username is mandatory")
-    private String username;
-
-    @NotBlank(message = "Password is mandatory")
-    private String password;
+//	@NotBlank(message = "Full Name is mandatory")
+//    private String fullName;
+//    private String job;
+//    private String country;
+//    private String city;
+//    private String dob;
+//    private String address;
+//    private String email;
+//    private String phone;
+//    private String linkPhoto;
+//    private String linkFB;
+//    private String linkIG;
+//    private String linkTwitter;
+//    private String skill;
+//    private String linkPhoto1;
+//    private String linkPhoto2;
+//    private String linkPhoto3;
+//    private String linkFriends1;
+//    private String linkFriends2;
+//    private String linkFriends3;
+//    private String npwp;
+//    private String gender;
+//    private String property;
+//    private String industry;
+//    @NotBlank(message = "Username is mandatory")
+//    private String username;
+//    @NotBlank(message = "Password is mandatory")
+//    private String password;
+    
+    private UserDetailDto userDetailDto;
+    private UserDto userDto;
+    private UserTaxDto userTaxDto;
+    
+    
+    
 }

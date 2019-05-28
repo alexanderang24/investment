@@ -143,7 +143,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="fullName" id="fullName"  placeholder="Enter your Full Name"
-									required data-bv-notempty-message="The Full Name is required"  th:field="*{fullName}"
+									required data-bv-notempty-message="The Full Name is required"  th:field="*{userDetailDto.fullName}"
 									/>
 								</div>
 							</div>
@@ -157,7 +157,7 @@
 									<span class="input-group-addon">+62</span>
 									<input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your Mobile Phone Number"
 									data-bv-integer="true" data-bv-integer-message="Wrong Number"
-									required data-bv-notempty-message="The Mobile Phone Number is required" th:field="*{phone}" 
+									required data-bv-notempty-message="The Mobile Phone Number is required" th:field="*{userDetailDto.phone}" 
 									/>
 								</div>								
         						<div id="phHint" class="text-danger"></div>
@@ -170,7 +170,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>	
 									<input type="date" class="form-control"  name="birthday" id="birthday" placeholder="Select your Birthday"
-									required data-bv-notempty-message="The Birthday is required" th:field="*{dob}"
+									required data-bv-notempty-message="The Birthday is required" th:field="*{userDetailDto.dob}"
 									/>
 								</div>
 							</div>
@@ -183,11 +183,11 @@
 									<span class="input-group-addon"><i class="fa fa-venus-mars" aria-hidden="true"></i></span>
 									
 									<label class="input-group-addon">Male
-                                            <input type="radio" checked="checked" name="gender" value="male" th:field="*{gender}">
+                                            <input type="radio" checked="checked" name="gender" value="male" th:field="*{userTaxDto.gender}">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="input-group-addon">Female
-                                            <input type="radio" name="gender"  value="female" th:field="*{gender}">
+                                            <input type="radio" name="gender"  value="female" th:field="*{userTaxDto.gender}">
                                             <span class="checkmark"></span>
                                         </label>		
 									
@@ -201,7 +201,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-home" aria-hidden="true" style="font-size:18px"></i></span>
 									<textarea rows="2" class="form-control" name="address" id="address"  placeholder="Enter your Address"
-									required data-bv-notempty-message="The Address is required" th:field="*{address}">
+									required data-bv-notempty-message="The Address is required" th:field="*{userDetailDto.address}">
 									</textarea>
 								</div>
 							</div>
@@ -213,7 +213,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-trophy" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="skill" id="skill"  placeholder="CSS,CS3,PHP,Java"
-									required data-bv-notempty-message="The Skill is required"  th:field="*{skill}"
+									required data-bv-notempty-message="The Skill is required"  th:field="*{userDetailDto.skill}"
 									/>
 								</div>
 							</div>
@@ -225,7 +225,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-briefcase" aria-hidden="true"></i></span>
 									<select class="form-control" name="job" id="job"
-									required data-bv-notempty-message="The Job is required" th:field="*{job}">
+									required data-bv-notempty-message="The Job is required" th:field="*{userDetailDto.job}">
 										<option value="0" disabled="disabled"> -- Choose your Job -- </option>
 									  	<option value="developer">Developer</option>
 									  	<option value="others">Others</option>
@@ -240,7 +240,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="city" id="city"  placeholder="Jakarta"
-									required data-bv-notempty-message="The City is required"  th:field="*{city}"
+									required data-bv-notempty-message="The City is required"  th:field="*{userDetailDto.city}"
 									/>
 								</div>
 							</div>
@@ -252,7 +252,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="country" id="country"  placeholder="Indonesia"
-									required data-bv-notempty-message="The Country is required"  th:field="*{country}"
+									required data-bv-notempty-message="The Country is required"  th:field="*{userDetailDto.country}"
 									/>
 								</div>
 							</div>
@@ -264,7 +264,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkPhoto" id="linkPhoto"  placeholder="https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/1072436_10201614489428856_93847078_o.jpg?_nc_cat=100&_nc_ht=scontent-sin6-1.xx&oh=e272c5e98a89df5deee9630f15f86cdf&oe=5D5A7259"
-									required data-bv-notempty-message="The Link Photo Profile is required"  th:field="*{linkPhoto}"
+									required data-bv-notempty-message="The Link Photo Profile is required"  th:field="*{userDetailDto.linkPhoto}"
 									/>
 								</div>
 							</div>
@@ -276,7 +276,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkFB" id="linkFB"  placeholder="https://www.facebook.com/laurence.butarbutar"
-									required data-bv-notempty-message="The Link Facebook is required"  th:field="*{linkFB}"
+									required data-bv-notempty-message="The Link Facebook is required"  th:field="*{userDetailDto.linkFB}"
 									/>
 								</div>
 							</div>
@@ -288,7 +288,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-instagram" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkIG" id="linkIG"  placeholder="https://www.instagram.com/shade_hard_line/"
-									required data-bv-notempty-message="The Link Instagram is required"  th:field="*{linkIG}"
+									required data-bv-notempty-message="The Link Instagram is required"  th:field="*{userDetailDto.linkIG}"
 									/>
 								</div>
 							</div>
@@ -300,7 +300,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkTwitter" id="linkTwitter"  placeholder="https://twitter.com/shade_hard_line"
-									required data-bv-notempty-message="The Link Twitter is required"  th:field="*{linkTwitter}"
+									required data-bv-notempty-message="The Link Twitter is required"  th:field="*{userDetailDto.linkTwitter}"
 									/>
 								</div>
 							</div>
@@ -312,7 +312,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkPhoto1" id="linkPhoto1"  placeholder="https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/901073_10200198621153034_619345332_o.jpg?_nc_cat=106&_nc_ht=scontent-sin6-1.xx&oh=c4ac2a23662111440fd4cfe7d98c4e76&oe=5D671D4F"
-									required data-bv-notempty-message="The Link Photo 1 is required"  th:field="*{linkPhoto1}"
+									required data-bv-notempty-message="The Link Photo 1 is required"  th:field="*{userDetailDto.linkPhoto1}"
 									/>
 								</div>
 							</div>
@@ -324,7 +324,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkPhoto2" id="linkPhoto2"  placeholder="https://scontent-sin2-1.xx.fbcdn.net/v/t1.0-9/1381968_10200801608387338_1432902616_n.jpg?_nc_cat=107&_nc_ht=scontent-sin2-1.xx&oh=a53285abd68eac0ce0cee2639dbaa691&oe=5D9EEA7F"
-									required data-bv-notempty-message="The Link Photo 2 is required"  th:field="*{linkPhoto2}"
+									required data-bv-notempty-message="The Link Photo 2 is required"  th:field="*{userDetailDto.linkPhoto2}"
 									/>
 								</div>
 							</div>
@@ -336,7 +336,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkPhoto3" id="linkPhoto3"  placeholder="https://scontent-sin2-1.xx.fbcdn.net/v/t1.0-9/1395781_10200801623427714_600507687_n.jpg?_nc_cat=109&_nc_ht=scontent-sin2-1.xx&oh=95a502222361caf1108400b342d7d8e3&oe=5D62474E"
-									required data-bv-notempty-message="The Link Photo 3 is required"  th:field="*{linkPhoto3}"
+									required data-bv-notempty-message="The Link Photo 3 is required"  th:field="*{userDetailDto.linkPhoto3}"
 									/>
 								</div>
 							</div>
@@ -348,7 +348,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkFriends1" id="linkFriends1"  placeholder="https://images.unsplash.com/flagged/photo-1558765363-678bdcb1f50c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
-									required data-bv-notempty-message="The Link Friends 1 is required"  th:field="*{linkFriends1}"
+									required data-bv-notempty-message="The Link Friends 1 is required"  th:field="*{userDetailDto.linkFriends1}"
 									/>
 								</div>
 							</div>
@@ -360,7 +360,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkFriends2" id="linkFriends2"  placeholder="https://images.unsplash.com/photo-1556741533-e228ee50f8b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-									required data-bv-notempty-message="The Link Friends 2 is required"  th:field="*{linkFriends2}"
+									required data-bv-notempty-message="The Link Friends 2 is required"  th:field="*{userDetailDto.linkFriends2}"
 									/>
 								</div>
 							</div>
@@ -372,7 +372,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="linkFriends3" id="linkFriends3"  placeholder="https://images.unsplash.com/photo-1556741533-927182355585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80"
-									required data-bv-notempty-message="The Link Friends 3 is required"  th:field="*{linkFriends3}"
+									required data-bv-notempty-message="The Link Friends 3 is required"  th:field="*{userDetailDto.linkFriends3}"
 									/>
 								</div>
 							</div>
@@ -384,7 +384,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-calculator" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="npwp" id="npwp"  placeholder="99.999.999.9-999.999"
-									required data-bv-notempty-message="The NPWP is required"  th:field="*{npwp}"
+									required data-bv-notempty-message="The NPWP is required"  th:field="*{userTaxDto.npwp}"
 									/>
 								</div>
 							</div>
@@ -397,7 +397,7 @@
 									<span class="input-group-addon"><i class="fa fa-building-o" aria-hidden="true"></i></span>
 									<div class="input-group-addon" th:each="props : ${properties}">
 		                                 <label class="input-group-addon">
-		                                     <input type="checkbox" name="property" th:value="${props.idDto}" th:field="*{property}">
+		                                     <input type="checkbox" name="property" th:value="${props.idDto}" th:field="*{userTaxDto.property}">
 		                                     <span class="checkmark"></span>
 		                                     <span th:text="${props.name}"></span>
 		                                 </label>
@@ -413,7 +413,7 @@
 									<span class="input-group-addon"><i class="fa fa-industry" aria-hidden="true"></i></span>				
 									<select class="selectpicker form-control" name="industry" id="industry" multiple data-max-options="2"
   									data-size="7"
-  									data-validation="required" th:field="*{industry}"
+  									data-validation="required" th:field="*{userTaxDto.industry}"
 									>
 										<option value="0" disabled="disabled">Select Industries</option>
 									    <option th:each="indus : ${industries}" th:value="${indus.id}" th:text="${indus.name}">			
@@ -430,7 +430,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
 									<input type="email" class="form-control" id="email" name="email" placeholder="shade_hard_line@yahoo.com" 
-									required data-bv-notempty-message="The Email is required" th:field="*{email}"
+									required data-bv-notempty-message="The Email is required" th:field="*{userDetailDto.email}"
 									/>
 								</div>
 							</div>
@@ -442,7 +442,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:15px"></i></span>
 									<input type="text" class="form-control" id="username" name="username" placeholder="Laurence" 
-									required data-bv-notempty-message="The Username is required" th:field="*{username}"
+									required data-bv-notempty-message="The Username is required" th:field="*{userDto.username}"
 									/>
 								</div>
         						<div id="usHint" class="text-danger"></div>
@@ -455,7 +455,7 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
 									<input type="password" class="form-control" minlength=6 name="password" id="password" placeholder="123456" required data-bv-notempty-message="The Password is required" data-bv-identical="true" data-bv-identical-field="confirmPassword"
-					                data-bv-identical-message="The password and its confirm are not the same" th:field="*{password}"
+					                data-bv-identical-message="The password and its confirm are not the same" th:field="*{userDto.password}"
 									/>
 								</div>
 							</div>

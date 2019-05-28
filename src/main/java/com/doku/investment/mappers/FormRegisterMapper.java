@@ -1,11 +1,17 @@
 package com.doku.investment.mappers;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
+import com.doku.investment.dto.FormRegisterDto;
+import com.doku.investment.dto.PropertyDto;
 import com.doku.investment.dto.UserDetailDto;
-import com.doku.investment.entities.UserDetail;
+import com.doku.investment.entities.Property;
 
 /**
  * @author Laurence
@@ -30,17 +36,22 @@ import com.doku.investment.entities.UserDetail;
  * </pre>
  * Anotation Mapping is for Mapping attribute from ("source") to ("target").
  * This is used if the java object have different attributes name.
- * <p>
- * Mapping in here is to convert type data from Date to String using custom format
  */
 @Mapper
-public interface UserDetailMapper {
+public interface FormRegisterMapper {
+	    
+	FormRegisterMapper INSTANCE = Mappers.getMapper( FormRegisterMapper.class );
 	
-	UserDetailMapper INSTANCE = Mappers.getMapper( UserDetailMapper.class );
+//	@Mappings({
+//    @Mapping(target = "idDto", source = "property.id")
+//	})
+//    UserDetailDto propertyToPropertyDto(Property property);
+	UserDetailDto formRegisterToUserDetailDto(FormRegisterDto formRegisterDto);
 	
-	@Mapping(target="dob", source="dob", dateFormat="dd/MM/yyyy")
-    UserDetailDto userDetailToUserDetailDto(UserDetail userDetail);
-
-	@Mapping(target="dob", source="dob", dateFormat="dd/MM/yyyy")
-    UserDetail userDetailDtoToUserDetail(UserDetailDto userDetailDto);
+	@Mappings({
+    @Mapping(target = "id", source = "propertyDto.idDto")
+	})
+    Property propertyDtoToProperty(PropertyDto propertyDto);
+	
+	List<PropertyDto> toListProperty(Collection<Property> properties);
 }

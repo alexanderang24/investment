@@ -91,9 +91,6 @@ public class UserController {
     	model.addAttribute("properties", propertiesDto);
 
     	model.addAttribute("formRegister", new FormRegisterDto());
-//    	model.addAttribute("user_detail", new UserDetailDto());
-//    	model.addAttribute("user", new UserDto());
-//    	model.addAttribute("user_tax", new UserTaxDto());
     	
         return "register";
     }    
@@ -121,21 +118,14 @@ public class UserController {
 	 * @return register go to register.html if input or result has error
 	 */
     @PostMapping("/adduser")
-//    public String addUser(@Valid @ModelAttribute UserDetailDto userDetailDto,@Valid @ModelAttribute UserDto userDto,@Valid @ModelAttribute UserTaxDto userTaxDto, BindingResult result, Model model) {
     	public String addUser(@Valid @ModelAttribute FormRegisterDto formRegister, BindingResult result, Model model) {
     	if (result.hasErrors()) {
-    		List<ObjectError> errors = result.getAllErrors();
-//    		model.addAttribute("formRegister", new FormRegisterDto());
-//    		List<IndustryDto> industries = industryServices.getListIndustry();
-//        	
-//        	List<PropertyDto> propertiesDto = PropertyMapper.INSTANCE.toListProperty(propertyRepository.findAll());
-//        	    	
-//        	model.addAttribute("industries", industries);
-//        	model.addAttribute("properties", propertiesDto);
-    		model.addAttribute("errors", errors);
 //          return "redirect:/signup";
           return "redirect:error";
     	}else {
+    		
+    		UserDetail profile = UserDetailMapper.INSTANCE.userDetailDtoToUserDetail(formRegister.getUserDetailDto());
+    		
             return "index"; 
     	}
     }
